@@ -20,7 +20,7 @@ function App() {
       const h = heightNum * 0.3048;
       const b = weightNum / (h * h);
       console.log(b);
-      setBmi(b);
+      setBmi(b.toFixed(2));
       setShowResult(true);
     } else {
       setBmi(null);
@@ -31,12 +31,15 @@ function App() {
 
   return (
     <div className="main">
+      <h2 className="center">BMI Calculator</h2>
+      <label>Weight (Kg)</label>
       <input
         className="input-wt"
         value={weight}
         placeholder="Enter Your Weight"
         onChange={(e) => setWeight(e.target.value)}
       />
+      <label>Height (feet)</label>
       <input
         className="input-ht"
         value={height}
@@ -49,8 +52,8 @@ function App() {
       <button
         className="btn"
         onClick={() => {
-          setHeight(0);
-          setWeight(0);
+          setHeight("");
+          setWeight("");
           setShowResult(false);
         }}
       >
